@@ -8,10 +8,13 @@ namespace LInkedList
   {
 
    MyLinkedList list = new MyLinkedList();
-   list.AddDataToTheLast(1);
-   list.AddDataToTheLast(2);
+   //Test Other Function In MyLinkedLIST Class...
    list.AddDataToTheLast(3);
-   list.AddDataToTheFirst(4);
+   list.AddDataToTheLast(4);
+   list.AddDataToTheLast(5);
+   list.AddDataToTheFirst(7);
+   list.AddDataToTheFirst(8);
+   list.AddDataToTheFirst(9);
    list.PrintForward();
    Console.WriteLine();
    list.PrinBackward();
@@ -20,8 +23,10 @@ namespace LInkedList
    Console.WriteLine();
    list.reverse_recursive(list.ReturnHead());
    Console.WriteLine();
+   list.Search(9);
+   Console.WriteLine();
    Console.WriteLine("----------Doubly Linked List-----------");
-
+   //Test Other Function In MyDoublyLinkedLIST Class...
    MyDoublyLinkedList doublyLinkedList = new MyDoublyLinkedList();
    doublyLinkedList.AddToFirst(1);
    doublyLinkedList.AddToFirst(2);
@@ -31,7 +36,7 @@ namespace LInkedList
    Console.WriteLine();
    doublyLinkedList.Shift(-3);
    doublyLinkedList.dsiaplay();
-   //doublyLinkedList.ToDoublyLinkedList(list);
+   //doublyLinkedList.ToDoublyLinkedList(list);       //uncomment this line to see this function...
 
    Console.ReadKey();
   }
