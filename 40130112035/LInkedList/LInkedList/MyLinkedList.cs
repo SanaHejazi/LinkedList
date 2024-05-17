@@ -6,6 +6,8 @@ namespace LInkedList
  internal class MyLinkedList
  {
   private Node Head;
+  public Node ReturnHead() { return Head; }
+
   public MyLinkedList() { Head = null; }
   public void AddDataToTheFirst(int data)
   {
@@ -86,7 +88,7 @@ namespace LInkedList
    }
    Head = Head.next;
   }
-  public void Size()
+  public int Size()
   {
    Node index = Head;
    int counter = 0;
@@ -97,7 +99,7 @@ namespace LInkedList
     counter++;
    }
 
-   Console.WriteLine(counter);
+   return counter;
   }
 
   public void PrintForward()
@@ -119,20 +121,59 @@ namespace LInkedList
 
   public void PrinBackward()
   {
-   List<int> Temp = new List<int>();
-   Node index = Head;
-   while (index != null)
+   if (Head == null)
    {
-    Temp.Add(index.data);
-    index = index.next;
+    Console.WriteLine("List Is Empty");
    }
-
-   for (int i = Temp.Count - 1; i >= 0; i--)
+   else
    {
-    Console.Write(Temp[i] + " ");
+    List<int> Temp = new List<int>();
+    Node index = Head;
+    while (index != null)
+    {
+     Temp.Add(index.data);
+     index = index.next;
+    }
+
+    for (int i = Temp.Count - 1; i >= 0; i--)
+    {
+     Console.Write(Temp[i] + " ");
+    }
+   }
+  }
+  public Node reverse_recursive(Node node)
+  {
+   if (node == null || node.next == null)
+   {
+    Console.Write(node.data + " ");     //Just For Showing Result  
+    return node;
+   }
+   else
+   {
+    Node newHead = reverse_recursive(node.next);
+    Console.Write(node.data + " ");  //Just For Showing Result  
+    return newHead;
    }
   }
 
+  public void reverse_Nonrecursive()
+  {   //Note C# Does Not Have Any Dsipose Function So...
+   Node[] Index = new Node[Size()];
+   Node head = Head;
+   int i = 0;
+   while (head != null)
+   {
+    Index[i] = head;
+    i++;
+    head = head.next;
+   }
+
+
+   for (int a = Index.Length - 1; a >= 0; a--)
+   {
+    Console.Write(Index[a].data + " ");
+   }
+  }
 
   public void dsiaplay()
   {
